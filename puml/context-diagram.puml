@@ -12,7 +12,7 @@ Person(client, "Client", "People that need manage your money", $sprite="users")
 
 System_Boundary(c1, "Banking System") {
     Container(spa, "SPA", "angular", "The main interface that the customer interacts", $sprite="angular")
-    Container(api, "Web Application", "Java EE, SpringBoot ", "Allows users to consume multiple services of banking system", $sprite="java")
+    Container(api, "API", "Java EE, SpringBoot ", "Allows users to consume multiple services of banking system", $sprite="java")
     ContainerDb(db, "Database", "MySQL", "Holds accouts info and clients", $sprite="mysql")
 }
 
