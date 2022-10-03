@@ -1,0 +1,8 @@
+@startuml "Use case diagram"
+skinparam actorStyle awesome
+"Client of Bank (Sanders)" as clientBank
+usecase "Deposite money" as uc1
+usecase "Withdrawal money" as uc2
+clientBank --> uc1
+clientBank --> uc2
+@enduml

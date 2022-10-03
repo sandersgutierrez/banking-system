@@ -1,0 +1,22 @@
+@startuml "Context diagram"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/mysql.puml
+!include FONTAWESOME/users.puml
+
+Person(client, "Client", "People that need manage your money", $sprite="users")
+
+System_Boundary(c1, "Banking System") {
+    Container(spa, "SPA", "angular", "The main interface that the customer interacts", $sprite="angular")
+    Container(api, "Web Application", "Java EE, SpringBoot ", "Allows users to consume multiple services of banking system", $sprite="java")
+    ContainerDb(db, "Database", "MySQL", "Holds accouts info and clients", $sprite="mysql")
+}
+
+Rel(client, spa, "Uses", "HTTPS")
+Rel(spa, api, "Uses", "HTTPS")
+Rel_R(api, db, "Reads/Writes")
+@enduml
